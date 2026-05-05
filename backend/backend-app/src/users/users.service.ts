@@ -1,21 +1,20 @@
 import { Injectable } from '@nestjs/common';
+import type { CreateUserDto, User } from './user.types';
 
 @Injectable()
 export class UsersService {
-    private users: any[] = [];
+  private readonly users: User[] = [];
 
-    getAllUsers() {
-        return this.users;
-    }
+  getAllUsers(): User[] {
+    return this.users;
+  }
 
-    createUser(user: any) {
-        this.users.push(user);
-        return user;
-    }
+  createUser(user: CreateUserDto): User {
+    this.users.push(user);
+    return user;
+  }
 
-    findByEmail(email: string) {
-        return this.users.find((user) => user.email === email);
-    }
+  findByEmail(email: string): User | undefined {
+    return this.users.find((user) => user.email === email);
+  }
 }
-
-
