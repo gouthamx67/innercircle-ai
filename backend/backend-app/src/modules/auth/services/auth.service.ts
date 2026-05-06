@@ -1,8 +1,9 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UsersService } from '../users/users.service';
+import { UsersService } from '../../users/services/users.service';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import type { CreateUserDto, User } from '../users/user.types';
+import { CreateUserDto } from '../../users/dto/create-user.dto';
+import { User } from '../../users/interfaces/user.interface';
 
 interface LoginResponse {
   access_token: string;
