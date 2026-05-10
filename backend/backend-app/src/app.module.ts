@@ -7,6 +7,7 @@ import { PrismaModule } from './database/prisma/prisma.module';
 import { ConversationsModule } from './conversations/conversations.module';
 import { MessagesModule } from './messages/messages.module';
 import { MemoriesModule } from './memories/memories.module';
+import { MoodsModule } from './moods/moods.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { MemoriesModule } from './memories/memories.module';
     ConversationsModule,
     MessagesModule,
     MemoriesModule,
+    MoodsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
