@@ -8,6 +8,8 @@ import { ConversationsModule } from './conversations/conversations.module';
 import { MessagesModule } from './messages/messages.module';
 import { MemoriesModule } from './memories/memories.module';
 import { MoodsModule } from './moods/moods.module';
+import { InsightsService } from './insights/insights.service';
+import { InsightsModule } from './insights/insights.module';
 
 @Module({
   imports: [
@@ -18,8 +20,9 @@ import { MoodsModule } from './moods/moods.module';
     MessagesModule,
     MemoriesModule,
     MoodsModule,
+    InsightsModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, InsightsService],
 })
 export class AppModule {}
