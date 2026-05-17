@@ -17,17 +17,20 @@ import ChatInput
 import { apiFetch }
     from "@/lib/api";
 
+import { useChatStore } from "@/stores/chatStore";
+
 export default function ChatPage() {
     const [
         conversations,
         setConversations,
     ] = useState<any[]>([]);
 
-    const [
-        activeConversationId,
-        setActiveConversationId,
-    ] = useState<number | null>(
-        null
+    const activeConversationId = useChatStore(
+        (state) => state.activeConversationId
+    );
+
+    const setActiveConversation = useChatStore(
+        (state) => state.setActiveConversation
     );
 
     const [messages, setMessages] =
@@ -74,7 +77,7 @@ export default function ChatPage() {
     async function handleSelectConversation(
         id: number
     ) {
-        setActiveConversationId(id);
+        setActiveConversation(id);
 
         await loadMessages(id);
     }
